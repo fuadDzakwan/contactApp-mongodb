@@ -1,0 +1,42 @@
+<div class="container mt-md-5">
+	<div class="row">
+		<div class="col-md-6">
+			<h2 class="display-5">Form Ubah Contact</h2>
+
+			<% if (typeof errors != 'undefined') { %>
+				
+				<div class="alert alert-danger" role="alert">
+
+ 					<ul>
+ 						<% errors.forEach(error => { %>
+
+ 							<li><%= error.msg %></li>
+
+ 						<% }) %>
+ 					</ul>
+ 					
+				</div>
+
+			<% } %>
+			
+    <form method="POST" action="/contact?_method=PUT">
+    	<input type="hidden" name="_id" value="=<%= contact._id %>">
+    	<input type="hidden" name="oldNama" value="<%=contact.oldNama || contact.nama%>">
+    <div class="mb-3">
+    <label for="nama" class="form-label">Nama Lengkap</label>
+    <input type="text" class="form-control" id="nama" name="nama" required value="<%=contact.nama%>">
+  </div>
+    <div class="mb-3">
+    <label for="noHandphone" class="form-label">No Handphone</label>
+    <input type="text" class="form-control" id="noHandphone" name="nohp" required value="<%=contact.nohp%>">
+  </div>    
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="email" required value="<%=contact.email%>">
+  </div>
+  <button type="submit" class="btn btn-success">Ubah, Selesai</button>
+</form>
+		</div>
+	</div>
+</div>
+<!-- keyboard udahbener euyy asyikk -->
